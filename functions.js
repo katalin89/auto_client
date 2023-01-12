@@ -9,12 +9,12 @@ function createRow(car){
     <td>${car.marca}</td>
     <td>${car.model}</td>
     <td>${car.culoare}</td>
-    <td>${car.nr_de_locuri}</td>
+    <td>${car.nrDeLocuri}</td>
     <td>${car.pret}</td
     
     `
-    console.log(car.nr_de_locuri);
-    console.log(car.pret);
+    console.log(car.nrDeLocuri);
+    console.log(car.model);
 
     return tr;
   
