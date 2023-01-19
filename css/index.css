@@ -58,7 +58,7 @@ tr:nth-child(even) {
   font-weight: 300;
 } 
 
-.allTelevizoare{
+.allCars{
   border: 10px solid rgb(44, 170, 160) ;
   border-style:ridge;
 }
@@ -87,3 +87,11 @@ td {
   background:#cffc83;
 }
 
+
+.newMasina{
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

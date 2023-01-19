@@ -22,8 +22,30 @@ function createRow(car){
 
 function attachRows(arr){
     let container=document.querySelector(".container");
+    container.innerHTML="";
     for(let i=0;i<arr.length;i++){
         container.appendChild(createRow(arr[i]));
        // console.log(arr[i]);
     }
 }
+
+function  returnMarcile(arr){
+    let arrNou;
+    for(let i=0;i<arr.length;i++){
+        arrNou.appendChild(arr[i].marca);
+    }
+    return arrNou;
+}
+
+ function returnMasina(data,marca){
+    for(let i=0;i<data.length;i++){
+        if(data[i].marca==marca){
+            return data[i].marca;
+        }
+
+    }
+    return -1;
+ }
+ 
+
+
