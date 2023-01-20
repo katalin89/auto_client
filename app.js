@@ -1,53 +1,53 @@
+let btnAdd=document.querySelector(".add");
+let inp1=document.getElementById('marca');
+let inp2=document.getElementById('model');
+let inp3=document.getElementById('culoare');
+let inp4=document.getElementById('nrLocuri');
+let inp5=document.getElementById('pret');
 
+
+let listContainer=document.querySelector(".container");
 
 getAllCars().then(data=>attachRows(data));
 
-fetch("http://localhost:8080/api/v1/masini/marci").then(data=>{
-  return data.json();
+// fetch("http://localhost:8080/api/v1/masini/marci").then(data=>{
+//   return data.json();
 
-}).then(data=>{
-  console.log(data);
-  createOptions(data)
-  
-  })
-//marci= array
-  function createOptions(marci){
-    let marcile=document.querySelector(".marci");
-    for(let i=0;i<marci.length;i++){
-      let option=document.createElement('option')
+// }).then(data=>{
+//   console.log(data);
+//   createOptions(data)
+//   getAllMarci();  
+//   })
 
-      option.value=marci[i];
-      option.textContent=marci[i];
-      marcile.appendChild(option);
-    }
-  }
 
   let marca= document.querySelector(".marci");
   marca.addEventListener("change",(e)=>{
-    console.log(marca.value);  
+    getAllMasiniByMarca(marca.value).then((data)=>{
 
-    fetch(`http://localhost:8080/api/v1/masini/${marca.value}`)
-    .then(data=>{
-      return data.json();
-    }).then(data=>{
       
-      console.log(data);
-  
+      console.log(marca.value);
+      createOptions(data);
       attachRows(data);
-      
-      
-    })
-  })
-  let listContainer=document.querySelector(".container");
-  let btnAdd=document.querySelector(".add");
-  let inp1=document.getElementById('marca');
-  let inp2=document.getElementById('model');
-  let inp3=document.getElementById('culoare');
-  let inp4=document.getElementById('nrLocuri');
-  let inp5=document.getElementById('pret');
 
-console.log(inp1);
-console.log (inp4);
+      console.log("data:"+data);
+    })
+    
+
+    // fetch(`http://localhost:8080/api/v1/masini/${marca.value}`)
+    // .then(data=>{
+    //   return data.json();
+    // }).then(data=>{
+      
+     
+  
+    //   attachRows(data);
+      
+      
+    // })
+  })
+ 
+
+
 
   btnAdd.addEventListener("click",()=>{
 
@@ -69,7 +69,18 @@ console.log (inp4);
     
   })
   
+//sa creeze obtiunile
+let containerSelect=document.querySelector(".marci");
 
+getAllMarci().then((data)=>{
+  createOptions(data);
+
+
+});
+
+// getAllMasiniByMarca(marca).then((data)=>{
+//   attachRows(data);
+// })
 
 
 

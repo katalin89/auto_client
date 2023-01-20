@@ -13,9 +13,7 @@ function createRow(car){
     <td>${car.pret}</td
     
     `
-    console.log(car.nrDeLocuri);
-    console.log(car.model);
-
+   
     return tr;
   
 }
@@ -47,5 +45,17 @@ function  returnMarcile(arr){
     return -1;
  }
  
+
+ //marci= array
+ function createOptions(marci){
+    let marcile=document.querySelector(".marci");
+    for(let i=0;i<marci.length;i++){
+      let option=document.createElement('option')
+
+      option.value=marci[i];
+      option.textContent=marci[i];
+      marcile.appendChild(option);
+    }
+  }
 
 

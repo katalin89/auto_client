@@ -32,6 +32,8 @@ async function getAllCars(){
 
     return data;
 
+    
+
 
 }
 
@@ -48,4 +50,28 @@ async function addCar(car){
   
 
 }
+
+async function getAllMarci(){
+    let data= await api("masini/marci",'GET');//in functia api avem http://localhost:8080/api/v1/"+path aici completam pathul mai departe de la endpoint:masini/marci
+
+    data=await data.json();
+
+   
+    return data;
+}
+
+//masini/{marca}
+
+async function getAllMasiniByMarca(marca){
+    let data=await api(`masini/${marca}`,'GET');
+    
+
+    data=await data.json();
+
+    console.log("data1:"+data);
+
+    return data;
+}
+
+
 
