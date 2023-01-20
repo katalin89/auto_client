@@ -1,6 +1,5 @@
 
 
-
 getAllCars().then(data=>attachRows(data));
 
 fetch("http://localhost:8080/api/v1/masini/marci").then(data=>{
