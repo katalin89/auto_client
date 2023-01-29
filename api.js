@@ -41,15 +41,10 @@ async function getAllCars(){
 
 async function addCar(car){
 
-
-
     let data= await api("add",'POST',car);
 
-
     return data.json();
-  
-
-}
+  }
 
 async function getAllMarci(){
     let data= await api("masini/marci",'GET');//in functia api avem http://localhost:8080/api/v1/"+path aici completam pathul mai departe de la endpoint:masini/marci
@@ -72,6 +67,19 @@ async function getAllMasiniByMarca(marca){
 
     return data;
 }
+
+ async function deleteCar(marca){
+    let data=await fetch(`http://localhost:8080/api/v1/delete/${marca}`);
+    data=await data.json();
+    return data;
+ }
+ /*async function getAllFilms(){
+    let dataApi= await fetch("https://api.themoviedb.org/3/movie/popular?api_key=29c67b39adde33f44618a80626c264ec&language=en-US&page=1");   
+    dataApi=await dataApi.json();
+    console.log(dataApi);
+    attachCards(dataApi.results,".films");
+    data = dataApi.results;
+}*/
 
 
 
