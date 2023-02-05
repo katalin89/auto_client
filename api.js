@@ -81,5 +81,11 @@ async function getAllMasiniByMarca(marca){
     data = dataApi.results;
 }*/
 
+async function updateCar(car){
+    let data=await api(`update`,'PUT',car);
+
+
+    return data;
+}
 
 

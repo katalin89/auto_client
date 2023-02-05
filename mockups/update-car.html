@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>A Brief History of Time</title>
+    <link rel="stylesheet" href="../css/index.css">
+    
+</head>
+
+<body>
+    <h1>Update car</h1>
+    <form>
+        <p>
+            <label for="marca">marca</label>
+            <input name="marca" type="text" id="marca" value="Vw "  disabled>
+        </p>
+        <p>
+            <label for="model">Model</label>
+            <input name="model" type="text" id="model" value="golf">
+        </p>
+        <p>
+            <label for="culoare">Culoare</label>
+            <input name="culoare" type="text" id="culoare" value="rosu">
+        </p>
+        <p>
+            <label for="nrDeLocuri">Numar de locuri</label>
+            <input name="nrDeLocuri" type="text" id="nrDeLocuri" value="4">
+        </p>
+        <p>
+            <label for="pret">Pret</label>
+            <input name="pret" type="text" id="pret" value="4">
+        </p>
+        <p>
+            <input type="submit" value="Update Masina">
+        </p>
+    </form>
+    <form method="post" action="/cars/8/delete" onsubmit="return confirm('Do you really want to delete this car?');">
+        <p>
+            <a class="button" href="all_cars.html">Cancel</a>
+        </p>
+        <p><input type="submit" value="Delete Car"></p>
+    </form>
+</body>
+
+</html>
