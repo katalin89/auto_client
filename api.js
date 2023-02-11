@@ -5,6 +5,7 @@ function api(path,method,body=null){
         method,
         headers:{
             'Content-Type':'application/json;charset=utf-8',
+            
         },
         mode:"cors"
     };
@@ -12,7 +13,6 @@ function api(path,method,body=null){
     if(body !==null){
     options.body=JSON.stringify(body);
     }
-
 
     return fetch(url,options);
 }
@@ -31,10 +31,6 @@ async function getAllCars(){
 
 
     return data;
-
-    
-
-
 }
 
 //functie care adauga o masina
@@ -68,11 +64,10 @@ async function getAllMasiniByMarca(marca){
     return data;
 }
 
- async function deleteCar(marca){
-    let data=await fetch(`http://localhost:8080/api/v1/delete/${marca}`);
-    data=await data.json();
-    return data;
+ async function deleteCar(carId){
+    let data=await api(`delete/${carId}`,'DELETE');
  }
+
  /*async function getAllFilms(){
     let dataApi= await fetch("https://api.themoviedb.org/3/movie/popular?api_key=29c67b39adde33f44618a80626c264ec&language=en-US&page=1");   
     dataApi=await dataApi.json();
@@ -82,8 +77,8 @@ async function getAllMasiniByMarca(marca){
 }*/
 
 async function updateCar(car){
+    
     let data=await api(`update`,'PUT',car);
-
 
     return data;
 }
