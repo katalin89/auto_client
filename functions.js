@@ -42,9 +42,7 @@ btnNewCar.addEventListener("click",(e)=>{
 
     let rowsContainer=document.querySelector(".container-masini");
 
-    rowsContainer.addEventListener("click",(e)=>{
-
-        console.log("ceca");        
+    rowsContainer.addEventListener("click",(e)=>{      
      
         let data=e.target.parentNode;
         console.log(data);
@@ -162,14 +160,14 @@ function update(){
     erors.push("trebuie pusa modelul");
     
 
-    input2.style.borderColor="red";;
+    input2.style.borderColor="red";
 
     }   
 
     if(input3.value==""){
         erors.push("trebuie pusa culoarea");
 
-        input3.style.borderColor="red";;
+        input3.style.borderColor="red";
         
     }
 
