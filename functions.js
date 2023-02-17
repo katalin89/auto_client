@@ -152,7 +152,10 @@ function update(){
 
     let erors=[];
 
-
+    if(input1.value==""&& input2.value==""&& input3.value==""&& input4.value==0 && input5.value==0){
+        erors.push(" Nu ati completat campurile ");
+      
+    }
     
     if(input2.value==""){
     
@@ -185,6 +188,7 @@ function update(){
 if (erors.length>0){
    
     let errorContainer=document.querySelector(".error");
+    errorContainer.innerHTML="";
 
     let h1=document.createElement("h1");
     h1.textContent="Ooops";
@@ -354,7 +358,6 @@ function attachNewCarPage(){
 
 
             for(let i=0;i<erors.length;i++){
-
                 let li=document.createElement("li");
 
                 li.textContent=erors[i];
