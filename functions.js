@@ -13,7 +13,7 @@ async function  attachHomePage(){
             <th class="culoare">Culoare</th>
 			<th class="marca">Marca</th>
 			<th class="model">Model</th>
-			<th cass="nrDeLocuri">NrDeLocuri</th>
+			<th class="nrDeLocuri">NrDeLocuri</th>
 			<th class="pret">Pret</th>
 				
 			</tr>
@@ -23,6 +23,36 @@ async function  attachHomePage(){
 		</tbody>
 	</table>
     `
+//aicisort ,containerf-masini trebuie puse in""? lin 21
+    container.addEventListener("click",async(e)=>{
+       
+       let data=e.target;  
+
+       if(data.classList.contains("pret")){
+            let vec= await sortByPrice();//await pentru a astepta informatiile 
+            attachRows(vec);
+        
+       }else if(data.classList.contains("culoare")){
+            let vec=await sortByColor();
+            attachRows(vec);
+       }else if(data.classList.contains("marca")){
+            let vec=await sortByMarca();
+            attachRows(vec);
+       }else if(data.classList.contains("model")){
+        let vec=await sortByModel();
+        attachRows(vec);
+       
+       }else if(data.classList.contains("nrDeLocuri")){
+        let vec=await sortByNrDeLocuri();
+      
+        attachRows(vec);
+       }
+
+            
+    })
+
+
+    
 
     let data = await getAllCars();
     attachRows(data);
@@ -34,8 +64,7 @@ let btnNewCar=document.querySelector(".new-car");
 
 btnNewCar.addEventListener("click",(e)=>{
     
-    
-                attachNewCarPage();
+    attachNewCarPage();
 
         
     });        
@@ -43,8 +72,7 @@ btnNewCar.addEventListener("click",(e)=>{
     let rowsContainer=document.querySelector(".container-masini");
 
     rowsContainer.addEventListener("click",(e)=>{
-
-        console.log("ceca");        
+    
      
         let data=e.target.parentNode;
         console.log(data);
@@ -144,7 +172,7 @@ function update(){
         marca:input1.value,
         model:input2.value,
         culoare:input3.value,
-        nrDeLocuri:input4.value,
+         nrDeLocuri:input4.value,
         pret:input5.value,
     }
 
@@ -159,14 +187,14 @@ function update(){
     erors.push("trebuie pusa modelul");
     
 
-    input2.style.borderColor="red";;
+    input2.style.borderColor="red";
 
     }   
 
     if(input3.value==""){
         erors.push("trebuie pusa culoarea");
 
-        input3.style.borderColor="red";;
+        input3.style.borderColor="red";
         
     }
 
@@ -210,10 +238,7 @@ if(erors.length==0){
    
     let data=await updateCar(car);
     attachHomePage();
-}
-
-
-
+    }
 
   })
 
@@ -269,7 +294,7 @@ function attachNewCarPage(){
         <div class="butoane">
             <button class="add">Add new  Car</button>
             <button class="cancel">Cancel</button>
-            </div
+        </div
     `
 
     let btnCancel=document.querySelector(".cancel")
@@ -312,7 +337,7 @@ function attachNewCarPage(){
         erors.push("trebuie pusa culoarea");
         
 
-        inp1.style.borderColor="red";;
+        inp1.style.borderColor="red";
 
         }   
         
@@ -321,14 +346,14 @@ function attachNewCarPage(){
         erors.push("trebuie pusa marca");
         
 
-        inp2.style.borderColor="red";;
+        inp2.style.borderColor="red";
 
         }   
 
         if(inp3.value==""){
             erors.push("trebuie pusa model");
 
-            inp3.style.borderColor="red";;
+            inp3.style.borderColor="red";
             
         }
 
@@ -387,9 +412,10 @@ function createRow(car){
 }
 
 
-//attatch rows
 function attachRows(arr){
     let container=document.querySelector(".container-masini");
+
+    container.innerHTML="";
     for(let i=0;i<arr.length;i++){
         container.appendChild(createRow(arr[i]));
     }

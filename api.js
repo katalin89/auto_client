@@ -68,13 +68,6 @@ async function getAllMasiniByMarca(marca){
     let data=await api(`delete/${carId}`,'DELETE');
  }
 
- /*async function getAllFilms(){
-    let dataApi= await fetch("https://api.themoviedb.org/3/movie/popular?api_key=29c67b39adde33f44618a80626c264ec&language=en-US&page=1");   
-    dataApi=await dataApi.json();
-    console.log(dataApi);
-    attachCards(dataApi.results,".films");
-    data = dataApi.results;
-}*/
 
 async function updateCar(car){
 
@@ -86,4 +79,50 @@ async function updateCar(car){
     return data;
 }
 
+async function sortByPrice(){
+
+    let data=await api(`sortByPrice`,'GET');
+    
+    data=await data.json();
+
+    console.log(data);
+    return data;
+}
+
+
+async function sortByColor(){
+    let data=await api(`sortByColor`,'GET');
+
+    data=await data.json();
+
+    console.log(data);
+
+    return data;
+}
+
+async function sortByMarca(){
+    let data=await api(`sortByMarca`,'GET');
+    data=await data.json();
+
+    return data;
+}
+
+async function sortByModel(){
+
+    let data=await api(`sortByModel`,'Get');
+
+    data =await data.json();
+    return data;
+
+}
+
+async function sortByNrDeLocuri(){
+
+    let data=await api(`sortByNrDeLocuri`,'Get');
+
+    data =await data.json();
+    
+    return data;
+
+}
 
