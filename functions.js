@@ -8,7 +8,6 @@ async function  attachHomePage(){
 	<table>
 		<thead>
 			<tr>
-            
             <th  class="id">Id</th>
             <th class="culoare">Culoare</th>
 			<th class="marca">Marca</th>
@@ -33,11 +32,7 @@ let btnNewCar=document.querySelector(".new-car");
 
 
 btnNewCar.addEventListener("click",(e)=>{
-    
-    
                 attachNewCarPage();
-
-        
     });        
 
     let rowsContainer=document.querySelector(".container-masini");
@@ -66,7 +61,7 @@ btnNewCar.addEventListener("click",(e)=>{
 
 }
 
-
+//cere valorile noi si face update,sare la pagina principala cu valoarea noua
 function update(){
 
      let inp1=document.getElementById('culoare');
@@ -145,8 +140,8 @@ function update(){
         model:input2.value,
         culoare:input3.value,
         nrDeLocuri:input4.value,
-        pret:input5.value,
-    }
+        pret:input5.value
+    };
 
     
 
@@ -159,19 +154,22 @@ function update(){
     erors.push("trebuie pusa modelul");
     
 
-    input2.style.borderColor="red";;
+    input2.style.borderColor="red";
 
     }   
 
     if(input3.value==""){
         erors.push("trebuie pusa culoarea");
 
-        input3.style.borderColor="red";;
+        input3.style.borderColor="red";
         
     }
 
     if(input4.value==0){
         erors.push("trebuie pus numarul de locuri");
+        input4.style.borderColor="red";
+    }else if(input4.value<0){
+        erors.push("Numarul de locuri nu poate fi un numar negativ");
         input4.style.borderColor="red";
     }
 
@@ -287,7 +285,7 @@ function attachNewCarPage(){
 
      btnAddNewCar.addEventListener("click", async ()=>{
         
-        let inp1=document.querySelector(".culoare");
+    let inp1=document.querySelector(".culoare");
     let inp2=document.querySelector(".marca");
     let inp3=document.querySelector(".model");
     let inp4=document.querySelector(".nrDeLocuri");
@@ -312,7 +310,7 @@ function attachNewCarPage(){
         erors.push("trebuie pusa culoarea");
         
 
-        inp1.style.borderColor="red";;
+        inp1.style.borderColor="red";
 
         }   
         
@@ -321,14 +319,14 @@ function attachNewCarPage(){
         erors.push("trebuie pusa marca");
         
 
-        inp2.style.borderColor="red";;
+        inp2.style.borderColor="red";
 
         }   
 
         if(inp3.value==""){
             erors.push("trebuie pusa model");
 
-            inp3.style.borderColor="red";;
+            inp3.style.borderColor="red";
             
         }
 
@@ -362,6 +360,7 @@ function attachNewCarPage(){
                 errorContainer.appendChild(li);
             }
         } else {
+           
            
          let data=await addCar(car);
          attachHomePage();

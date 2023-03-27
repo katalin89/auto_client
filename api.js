@@ -1,13 +1,14 @@
 function api(path,method,body=null){
-    const url="http://localhost:8080/api/v1/"+path;
+    const url="http://localhost:8080/api/v1/masina/"+path;
 
     const options={
         method,
         headers:{
             'Content-Type':'application/json;charset=utf-8',
             
-        },
-        mode:"cors"
+        }
+
+      
     };
 
     if(body !==null){
@@ -24,7 +25,8 @@ function api(path,method,body=null){
 async function getAllCars(){
 
 
-    let data = await api("masini",'GET');
+
+    let data = await api("all",'GET');
 
 
     data= await data.json();
