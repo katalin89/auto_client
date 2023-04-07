@@ -71,7 +71,6 @@ async function getAllMarci(){
 async function updateCar(car){
 
 
-    
     let data=await api(`update`,'PUT',car);
 
 

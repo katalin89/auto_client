@@ -1,3 +1,5 @@
+
+//>$(".container-masini") in consola putem verifica daca exista clasa respectiva
 async function attachHomePage() {
   let container = document.querySelector(".container");
 
@@ -13,11 +15,11 @@ async function attachHomePage() {
     
 		<thead >
 			<tr class="container-sort">
-            <th  class="id">Id</th>
-            <th class="culoare">Culoare</th>
-			<th class="marca">Marca</th>
-			<th class="model">Model</th>
-			<th cass="nrDeLocuri">NrDeLocuri</th>
+        <th  class="id">Id</th>
+        <th class="culoare">Culoare</th>
+			  <th class="marca">Marca</th>
+			  <th class="model">Model</th>
+			    <th cass="nrDeLocuri">NrDeLocuri</th>
 			<th class="pret">Pret</th>
 				
 			</tr>
@@ -31,7 +33,7 @@ async function attachHomePage() {
  
    
     `;
-    //container?
+   
     let data = await getAllCars();
     attachRows(data);
 
@@ -351,7 +353,12 @@ function attachNewCarPage() {
       erors.push("trebuie pus pretul");
 
       inp5.style.borderColor = "red";
+    }else if(inp5.value.match("[A-Za-z]")){
+      erors.push("Pretul nu poate avea caractere , doar cifre");
+
+      inp5.style.borderColor="red";
     }
+
 
     if (erors.length > 0) {
       let errorContainer = document.querySelector(".error");
@@ -384,12 +391,12 @@ function createRow(car) {
 
   tr.innerHTML = `
 				<td>${car.id}</td>
-                <th>${car.culoare}</th>
+        <th>${car.culoare}</th>
 				<td>${car.marca}</td>
-                <td>${car.model}</td>
+        <td>${car.model}</td>
 				<td>${car.nrDeLocuri}</td>
 				<td>${car.pret}</td>	
- `;
+ ` ;
   return tr;
 }
 
